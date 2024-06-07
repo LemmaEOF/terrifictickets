@@ -48,12 +48,12 @@ public record PasscardComponent(int tokens, int tickets) implements TooltipAppen
 	}
 
 	public Pair<PasscardComponent, Integer> removeTokens(int tokens) {
-		int tokensRemoved = Math.max(this.tokens, tokens);
+		int tokensRemoved = Math.min(this.tokens, tokens);
 		return new Pair<>(new PasscardComponent(this.tokens-tokensRemoved, this.tickets), tokensRemoved);
 	}
 
 	public Pair<PasscardComponent, Integer> removeTickets(int tickets) {
-		int ticketsRemoved = Math.max(this.tickets, tickets);
+		int ticketsRemoved = Math.min(this.tickets, tickets);
 		return new Pair<>(new PasscardComponent(this.tokens, this.tickets-ticketsRemoved), ticketsRemoved);
 	}
 

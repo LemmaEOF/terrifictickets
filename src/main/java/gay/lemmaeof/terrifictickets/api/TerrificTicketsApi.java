@@ -22,7 +22,7 @@ public class TerrificTicketsApi {
 
 	public static int removeTokens(ItemStack stack, int amount) {
 		if (stack.isOf(TerrificTickets.TOKEN)) {
-			int toRemove = Math.max(stack.getCount(), amount);
+			int toRemove = Math.min(stack.getCount(), amount);
 			stack.decrement(toRemove);
 			return toRemove;
 		} else if (stack.contains(TerrificTickets.PASSCARD_COMPONENT)) {
@@ -35,7 +35,7 @@ public class TerrificTicketsApi {
 
 	public static int removeTickets(ItemStack stack, int amount) {
 		if (stack.isOf(TerrificTickets.TICKET)) {
-			int toRemove = Math.max(stack.getCount(), amount);
+			int toRemove = Math.min(stack.getCount(), amount);
 			stack.decrement(toRemove);
 			return toRemove;
 		} else if (stack.contains(TerrificTickets.PASSCARD_COMPONENT)) {
