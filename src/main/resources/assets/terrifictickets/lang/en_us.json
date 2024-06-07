@@ -1,0 +1,8 @@
+{
+	"itemGroup.terrifictickets.group": "Terrific Tickets",
+	"item.terrifictickets.passcard": "Passcard",
+	"item.terrifictickets.ticket": "Ticket",
+	"item.terrifictickets.token": "Token",
+	"tooltip.terrifictickets.ticket_display": "%s⏳",
+	"tooltip.terrifictickets.token_display": "%s⏼"
+}

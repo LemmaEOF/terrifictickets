@@ -29,7 +29,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+${project.minecraft_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+1.21"
 }
 
 processResources {
@@ -41,12 +41,12 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 
 	withSourcesJar()
 }
@@ -65,5 +65,17 @@ publishing {
 	}
 
 	repositories {
+		if (project.hasProperty("publish-username")) {
+			maven {
+				url "https://repo-api.sleeping.town/"
+				credentials {
+					username project.hasProperty("publish-username") ? project.getProperty("publish-username") : null
+					password project.hasProperty("publish-password") ? project.getProperty("publish-password") : null
+				}
+			}
+		}
+		maven {
+			url file('build/maven').toURI().toString()
+		}
 	}
 }

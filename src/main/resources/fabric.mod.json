@@ -1,33 +1,33 @@
 {
 	"schemaVersion": 1,
-	"id": "starter",
+	"id": "terrifictickets",
 	"version": "${version}",
-	"name": "Fabric Starter",
-	"description": "Template for starting out Fabric mods",
+	"name": "Terrific Tickets",
+	"description": "Terrific Tickets - a library mod for ModFest Carinval",
 	"authors": [
-		"Me!"
+		"LemmaEOF"
 	],
 	"contact": {
-		"sources": "https://github.com/CottonMC/FabricStarter"
+		"sources": "https://github.com/LemmaEOF/terrifictickets"
 	},
-	"license": "MIT",
-	"icon": "assets/starter/icon.png",
+	"license": "bsd-3",
+	"icon": "assets/terrifictickets/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.cottonmc.starter.FabricStarter"
+			"gay.lemmaeof.terrifictickets.TerrificTickets"
+		],
+		"client": [
+			"gay.lemmaeof.terrifictickets.TerrificTicketsClient"
 		]
 	},
 	"mixins": [
-		"mixins.starter.json"
+		"mixins.terrifictickets.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.9",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
+		"minecraft": "*",
+		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }

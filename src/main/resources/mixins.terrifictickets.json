@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "gay.lemmaeof.terrifictickets.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MixinDataComponentTypes",
+    "MixinInventory",
+    "MixinItemStack"
+  ]
+}
