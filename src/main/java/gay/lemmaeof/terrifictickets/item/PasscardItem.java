@@ -17,6 +17,7 @@ public class PasscardItem extends Item {
 		super(settings);
 	}
 
+	//TODO: onStackClicked like this too
 	@Override
 	public boolean onClicked(ItemStack stack, ItemStack otherStack, Slot slot, ClickType clickType, PlayerEntity player, StackReference cursorStackReference) {
 		if (clickType == ClickType.RIGHT) {

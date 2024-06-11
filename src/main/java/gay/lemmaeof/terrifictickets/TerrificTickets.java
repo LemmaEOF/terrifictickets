@@ -29,7 +29,7 @@ public class TerrificTickets implements ModInitializer {
 
 	public static final Item TOKEN = register("token", new Item(new Item.Settings().maxCount(128)));
 	public static final Item TICKET = register("ticket", new Item(new Item.Settings().maxCount(256)));
-	public static final Item PASSCARD = register("passcard", new PasscardItem(new Item.Settings().component(PASSCARD_COMPONENT, PasscardComponent.EMPTY)));
+	public static final Item PASSCARD = register("passcard", new PasscardItem(new Item.Settings().maxCount(1).component(PASSCARD_COMPONENT, PasscardComponent.EMPTY)));
 
 	public static final ItemGroup GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(MODID, "group"), FabricItemGroup.builder()
 			.displayName(Text.translatable("itemGroup.terrifictickets.group"))
