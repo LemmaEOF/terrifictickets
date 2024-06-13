@@ -11,7 +11,7 @@ version = "${project.mod_version}+${project.minecraft_version}"
 loom {
 
 	mods {
-		"modid" {
+		"terrifictickets" {
 			sourceSet sourceSets.main
 		}
 	}
