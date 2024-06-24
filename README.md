@@ -27,3 +27,5 @@ dependencies {
     modImplementation include("gay.lemmaeof:terrifictickets:<VERSION>")
 }
 ```
+
+[![Made for ModFest: Carnival](https://raw.githubusercontent.com/ModFest/art/v2/badge/svg/carnival/cozy.svg)](https://modfest.net/carnival)
