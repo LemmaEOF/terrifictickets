@@ -1,8 +1,12 @@
 {
+	"block.terrifictickets.ticket_acceptor": "Ticket Acceptor",
+	"block.terrifictickets.token_acceptor": "Token Acceptor",
 	"itemGroup.terrifictickets.group": "Terrific Tickets",
 	"item.terrifictickets.passcard": "Passcard",
 	"item.terrifictickets.ticket": "Ticket",
 	"item.terrifictickets.token": "Token",
+	"text.terrifictickets.cycle_ticket": "Set ticket cost to %s⏳",
+	"text.terrifictickets.cycle_token": "Set token cost to %s⏼",
 	"tooltip.terrifictickets.ticket_display": "%s⏳",
 	"tooltip.terrifictickets.token_display": "%s⏼"
 }
