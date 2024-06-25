@@ -1,0 +1,10 @@
+{
+	"token_accept": {
+		"sounds": ["terrifictickets:token_accept"],
+		"subtitle": "subtitle.terrifictickets.token_accept"
+	},
+	"ticket_accept": {
+		"sounds": ["terrifictickets:ticket_accept"],
+		"subtitle": "subtitle.terrifictickets.ticket_accept"
+	}
+}

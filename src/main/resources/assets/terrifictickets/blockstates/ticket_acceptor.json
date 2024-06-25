@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": {"model": "terrifictickets:block/ticket_acceptor"},
+		"facing=east": {"model": "terrifictickets:block/ticket_acceptor", "y": 90},
+		"facing=south": {"model": "terrifictickets:block/ticket_acceptor", "y": 180},
+		"facing=west": {"model": "terrifictickets:block/ticket_acceptor", "y": 270}
+	}
+}

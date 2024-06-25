@@ -18,6 +18,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -37,8 +38,12 @@ public class TerrificTickets implements ModInitializer {
 	public static final Item TOKEN = register("token", new Item(new Item.Settings().maxCount(128)));
 	public static final Item TICKET = register("ticket", new Item(new Item.Settings().maxCount(256)));
 	public static final PasscardItem PASSCARD = register("passcard", new PasscardItem(new Item.Settings().maxCount(1).component(PASSCARD_COMPONENT, PasscardComponent.EMPTY)));
-	public static final TokenAcceptorBlock TOKEN_ACCEPTOR = register("token_acceptor", new TokenAcceptorBlock(AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).strength(3)), new Item.Settings());
-	public static final TicketAcceptorBlock TICKET_ACCEPTOR = register("ticket_acceptor", new TicketAcceptorBlock(AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).strength(3)), new Item.Settings());
+
+	public static final TokenAcceptorBlock TOKEN_ACCEPTOR = register("token_acceptor", new TokenAcceptorBlock(AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).strength(3).nonOpaque()), new Item.Settings());
+	public static final TicketAcceptorBlock TICKET_ACCEPTOR = register("ticket_acceptor", new TicketAcceptorBlock(AbstractBlock.Settings.create().mapColor(MapColor.DULL_PINK).strength(3).nonOpaque()), new Item.Settings());
+
+	public static final SoundEvent TOKEN_ACCEPT = register("token_accept");
+	public static final SoundEvent TICKET_ACCEPT = register("ticket_accept");
 
 	public static final ItemGroup GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(MODID, "group"), FabricItemGroup.builder()
 			.displayName(Text.translatable("itemGroup.terrifictickets.group"))
@@ -65,5 +70,9 @@ public class TerrificTickets implements ModInitializer {
 		T t = Registry.register(Registries.BLOCK, Identifier.of(MODID, name), block);
 		Registry.register(Registries.ITEM, Identifier.of(MODID, name), new BlockItem(t, settings));
 		return t;
+	}
+
+	private static SoundEvent register(String name) {
+		return Registry.register(Registries.SOUND_EVENT, Identifier.of(MODID, name), SoundEvent.of(Identifier.of(MODID, name)));
 	}
 }

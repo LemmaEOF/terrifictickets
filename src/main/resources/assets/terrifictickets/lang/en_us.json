@@ -5,6 +5,8 @@
 	"item.terrifictickets.passcard": "Passcard",
 	"item.terrifictickets.ticket": "Ticket",
 	"item.terrifictickets.token": "Token",
+	"subtitle.terrifictickets.ticket_accept": "Ticket accepted",
+	"subtitle.terrifictickets.token_accept": "Token accepted",
 	"text.terrifictickets.cycle_ticket": "Set ticket cost to %s⏳",
 	"text.terrifictickets.cycle_token": "Set token cost to %s⏼",
 	"tooltip.terrifictickets.ticket_display": "%s⏳",

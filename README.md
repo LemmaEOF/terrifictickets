@@ -29,3 +29,11 @@ dependencies {
 ```
 
 [![Made for ModFest: Carnival](https://raw.githubusercontent.com/ModFest/art/v2/badge/svg/carnival/cozy.svg)](https://modfest.net/carnival)
+
+## Credits
+
+- Coin textures from [Heroic Icon Pack by Aleksandr Makarov](https://iknowkingrabbit.itch.io/heroic-icon-pack)
+- Passcard texture from [RPG Items - Retro Pack by Blodyavenger](https://blodyavenger.itch.io/rpg-items-retro-pack)
+- Token and ticket acceptor textures by apfelrunder
+- Ticket accept sound from [tramticket_pinching.wav by KrystofJakobe](https://freesound.org/people/KrystofJakobe/sounds/499135/)
+- Token accept sound from  [vending_machine_coin_insert.wav by Krokulator](https://freesound.org/people/Krokulator/sounds/696745/)

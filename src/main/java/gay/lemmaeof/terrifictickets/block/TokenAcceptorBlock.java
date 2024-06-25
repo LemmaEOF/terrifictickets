@@ -1,5 +1,6 @@
 package gay.lemmaeof.terrifictickets.block;
 
+import gay.lemmaeof.terrifictickets.TerrificTickets;
 import gay.lemmaeof.terrifictickets.api.TerrificTicketsApi;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -7,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -49,24 +51,21 @@ public class TokenAcceptorBlock extends Block {
 
 	@Override
 	protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-		if (TerrificTicketsApi.getTokens(stack) == state.get(COST)) {
-			TerrificTicketsApi.removeTokens(stack, state.get(COST));
+		if (state.get(ACTIVATED)) {
+			return ItemActionResult.CONSUME;
+		} else if (TerrificTicketsApi.getTokens(stack) >= state.get(COST)) {
+			if (!player.isCreative()) TerrificTicketsApi.removeTokens(stack, state.get(COST));
 			world.setBlockState(pos, state.with(ACTIVATED, true));
-			world.scheduleBlockTick(pos, this, 20);
+			world.scheduleBlockTick(pos, this, 10);
+			world.playSound(null, pos, TerrificTickets.TOKEN_ACCEPT, SoundCategory.BLOCKS, 1f, world.getRandom().nextFloat() * 0.4f + 0.8f);
 			return ItemActionResult.SUCCESS;
-		}
-		return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
-	}
-
-	@Override
-	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-		if (player.isCreative()) {
+		} else if (stack.isEmpty() && player.isCreative()) {
 			int newValue = cycle(COST.getValues(), state.get(COST), player.isSneaking());
 			world.setBlockState(pos, state.with(COST, newValue));
 			player.sendMessage(Text.translatable("text.terrifictickets.cycle_token", newValue), true);
-			return ActionResult.SUCCESS;
+			return ItemActionResult.SUCCESS;
 		}
-		return super.onUse(state, world, pos, player, hit);
+		return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
 	}
 
 	@Override
@@ -78,6 +77,16 @@ public class TokenAcceptorBlock extends Block {
 	@Override
 	protected int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
 		return state.get(ACTIVATED)? 16 : 0;
+	}
+
+	@Override
+	protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+		return state.get(ACTIVATED)? 16 : 0;
+	}
+
+	@Override
+	protected boolean emitsRedstonePower(BlockState state) {
+		return state.get(ACTIVATED);
 	}
 
 	private static <T> T cycle(Iterable<T> elements, @Nullable T current, boolean inverse) {
